@@ -45,6 +45,28 @@ class $ReportesTable extends Reportes
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
+  static const VerificationMeta _clientIdMeta = const VerificationMeta(
+    'clientId',
+  );
+  @override
+  late final GeneratedColumn<String> clientId = GeneratedColumn<String>(
+    'client_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _installationIdMeta = const VerificationMeta(
+    'installationId',
+  );
+  @override
+  late final GeneratedColumn<String> installationId = GeneratedColumn<String>(
+    'installation_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _usuarioIdMeta = const VerificationMeta(
     'usuarioId',
   );
@@ -330,6 +352,63 @@ class $ReportesTable extends Reportes
         type: DriftSqlType.string,
         requiredDuringInsert: false,
       );
+  static const VerificationMeta _lastSyncAttemptMeta = const VerificationMeta(
+    'lastSyncAttempt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> lastSyncAttempt =
+      GeneratedColumn<DateTime>(
+        'last_sync_attempt',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _syncErrorMeta = const VerificationMeta(
+    'syncError',
+  );
+  @override
+  late final GeneratedColumn<String> syncError = GeneratedColumn<String>(
+    'sync_error',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _retryCountMeta = const VerificationMeta(
+    'retryCount',
+  );
+  @override
+  late final GeneratedColumn<int> retryCount = GeneratedColumn<int>(
+    'retry_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _cancelledAtMeta = const VerificationMeta(
+    'cancelledAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> cancelledAt = GeneratedColumn<DateTime>(
+    'cancelled_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _createdAtMeta = const VerificationMeta(
     'createdAt',
   );
@@ -352,11 +431,188 @@ class $ReportesTable extends Reportes
     type: DriftSqlType.dateTime,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _campaignIdMeta = const VerificationMeta(
+    'campaignId',
+  );
+  @override
+  late final GeneratedColumn<String> campaignId = GeneratedColumn<String>(
+    'campaign_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _campaignNameMeta = const VerificationMeta(
+    'campaignName',
+  );
+  @override
+  late final GeneratedColumn<String> campaignName = GeneratedColumn<String>(
+    'campaign_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _collectorNameMeta = const VerificationMeta(
+    'collectorName',
+  );
+  @override
+  late final GeneratedColumn<String> collectorName = GeneratedColumn<String>(
+    'collector_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _collectorUniversityCodeMeta =
+      const VerificationMeta('collectorUniversityCode');
+  @override
+  late final GeneratedColumn<String> collectorUniversityCode =
+      GeneratedColumn<String>(
+        'collector_university_code',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _photoFilenameMeta = const VerificationMeta(
+    'photoFilename',
+  );
+  @override
+  late final GeneratedColumn<String> photoFilename = GeneratedColumn<String>(
+    'photo_filename',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _photoSizeBytesMeta = const VerificationMeta(
+    'photoSizeBytes',
+  );
+  @override
+  late final GeneratedColumn<int> photoSizeBytes = GeneratedColumn<int>(
+    'photo_size_bytes',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _imageWidthMeta = const VerificationMeta(
+    'imageWidth',
+  );
+  @override
+  late final GeneratedColumn<int> imageWidth = GeneratedColumn<int>(
+    'image_width',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _imageHeightMeta = const VerificationMeta(
+    'imageHeight',
+  );
+  @override
+  late final GeneratedColumn<int> imageHeight = GeneratedColumn<int>(
+    'image_height',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _municipalityMeta = const VerificationMeta(
+    'municipality',
+  );
+  @override
+  late final GeneratedColumn<String> municipality = GeneratedColumn<String>(
+    'municipality',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _departmentMeta = const VerificationMeta(
+    'department',
+  );
+  @override
+  late final GeneratedColumn<String> department = GeneratedColumn<String>(
+    'department',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _countryMeta = const VerificationMeta(
+    'country',
+  );
+  @override
+  late final GeneratedColumn<String> country = GeneratedColumn<String>(
+    'country',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _locationSourceMeta = const VerificationMeta(
+    'locationSource',
+  );
+  @override
+  late final GeneratedColumn<String> locationSource = GeneratedColumn<String>(
+    'location_source',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _damageTypeMeta = const VerificationMeta(
+    'damageType',
+  );
+  @override
+  late final GeneratedColumn<String> damageType = GeneratedColumn<String>(
+    'damage_type',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _surfaceTypeMeta = const VerificationMeta(
+    'surfaceType',
+  );
+  @override
+  late final GeneratedColumn<String> surfaceType = GeneratedColumn<String>(
+    'surface_type',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _statusMeta = const VerificationMeta('status');
+  @override
+  late final GeneratedColumn<String> status = GeneratedColumn<String>(
+    'status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('completo'),
+  );
+  static const VerificationMeta _exportedAtMeta = const VerificationMeta(
+    'exportedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> exportedAt = GeneratedColumn<DateTime>(
+    'exported_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
     idLocal,
     idRemoto,
+    clientId,
+    installationId,
     usuarioId,
     rutaFotoLocal,
     fotoUrlRemota,
@@ -383,8 +639,29 @@ class $ReportesTable extends Reportes
     clasificacionIa,
     confianzaIa,
     resultadoSegmentacion,
+    lastSyncAttempt,
+    syncError,
+    retryCount,
+    deletedAt,
+    cancelledAt,
     createdAt,
     updatedAt,
+    campaignId,
+    campaignName,
+    collectorName,
+    collectorUniversityCode,
+    photoFilename,
+    photoSizeBytes,
+    imageWidth,
+    imageHeight,
+    municipality,
+    department,
+    country,
+    locationSource,
+    damageType,
+    surfaceType,
+    status,
+    exportedAt,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -413,6 +690,21 @@ class $ReportesTable extends Reportes
       context.handle(
         _idRemotoMeta,
         idRemoto.isAcceptableOrUnknown(data['id_remoto']!, _idRemotoMeta),
+      );
+    }
+    if (data.containsKey('client_id')) {
+      context.handle(
+        _clientIdMeta,
+        clientId.isAcceptableOrUnknown(data['client_id']!, _clientIdMeta),
+      );
+    }
+    if (data.containsKey('installation_id')) {
+      context.handle(
+        _installationIdMeta,
+        installationId.isAcceptableOrUnknown(
+          data['installation_id']!,
+          _installationIdMeta,
+        ),
       );
     }
     if (data.containsKey('usuario_id')) {
@@ -635,6 +927,42 @@ class $ReportesTable extends Reportes
         ),
       );
     }
+    if (data.containsKey('last_sync_attempt')) {
+      context.handle(
+        _lastSyncAttemptMeta,
+        lastSyncAttempt.isAcceptableOrUnknown(
+          data['last_sync_attempt']!,
+          _lastSyncAttemptMeta,
+        ),
+      );
+    }
+    if (data.containsKey('sync_error')) {
+      context.handle(
+        _syncErrorMeta,
+        syncError.isAcceptableOrUnknown(data['sync_error']!, _syncErrorMeta),
+      );
+    }
+    if (data.containsKey('retry_count')) {
+      context.handle(
+        _retryCountMeta,
+        retryCount.isAcceptableOrUnknown(data['retry_count']!, _retryCountMeta),
+      );
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    if (data.containsKey('cancelled_at')) {
+      context.handle(
+        _cancelledAtMeta,
+        cancelledAt.isAcceptableOrUnknown(
+          data['cancelled_at']!,
+          _cancelledAtMeta,
+        ),
+      );
+    }
     if (data.containsKey('created_at')) {
       context.handle(
         _createdAtMeta,
@@ -650,6 +978,129 @@ class $ReportesTable extends Reportes
       );
     } else if (isInserting) {
       context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('campaign_id')) {
+      context.handle(
+        _campaignIdMeta,
+        campaignId.isAcceptableOrUnknown(data['campaign_id']!, _campaignIdMeta),
+      );
+    }
+    if (data.containsKey('campaign_name')) {
+      context.handle(
+        _campaignNameMeta,
+        campaignName.isAcceptableOrUnknown(
+          data['campaign_name']!,
+          _campaignNameMeta,
+        ),
+      );
+    }
+    if (data.containsKey('collector_name')) {
+      context.handle(
+        _collectorNameMeta,
+        collectorName.isAcceptableOrUnknown(
+          data['collector_name']!,
+          _collectorNameMeta,
+        ),
+      );
+    }
+    if (data.containsKey('collector_university_code')) {
+      context.handle(
+        _collectorUniversityCodeMeta,
+        collectorUniversityCode.isAcceptableOrUnknown(
+          data['collector_university_code']!,
+          _collectorUniversityCodeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('photo_filename')) {
+      context.handle(
+        _photoFilenameMeta,
+        photoFilename.isAcceptableOrUnknown(
+          data['photo_filename']!,
+          _photoFilenameMeta,
+        ),
+      );
+    }
+    if (data.containsKey('photo_size_bytes')) {
+      context.handle(
+        _photoSizeBytesMeta,
+        photoSizeBytes.isAcceptableOrUnknown(
+          data['photo_size_bytes']!,
+          _photoSizeBytesMeta,
+        ),
+      );
+    }
+    if (data.containsKey('image_width')) {
+      context.handle(
+        _imageWidthMeta,
+        imageWidth.isAcceptableOrUnknown(data['image_width']!, _imageWidthMeta),
+      );
+    }
+    if (data.containsKey('image_height')) {
+      context.handle(
+        _imageHeightMeta,
+        imageHeight.isAcceptableOrUnknown(
+          data['image_height']!,
+          _imageHeightMeta,
+        ),
+      );
+    }
+    if (data.containsKey('municipality')) {
+      context.handle(
+        _municipalityMeta,
+        municipality.isAcceptableOrUnknown(
+          data['municipality']!,
+          _municipalityMeta,
+        ),
+      );
+    }
+    if (data.containsKey('department')) {
+      context.handle(
+        _departmentMeta,
+        department.isAcceptableOrUnknown(data['department']!, _departmentMeta),
+      );
+    }
+    if (data.containsKey('country')) {
+      context.handle(
+        _countryMeta,
+        country.isAcceptableOrUnknown(data['country']!, _countryMeta),
+      );
+    }
+    if (data.containsKey('location_source')) {
+      context.handle(
+        _locationSourceMeta,
+        locationSource.isAcceptableOrUnknown(
+          data['location_source']!,
+          _locationSourceMeta,
+        ),
+      );
+    }
+    if (data.containsKey('damage_type')) {
+      context.handle(
+        _damageTypeMeta,
+        damageType.isAcceptableOrUnknown(data['damage_type']!, _damageTypeMeta),
+      );
+    }
+    if (data.containsKey('surface_type')) {
+      context.handle(
+        _surfaceTypeMeta,
+        surfaceType.isAcceptableOrUnknown(
+          data['surface_type']!,
+          _surfaceTypeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('status')) {
+      context.handle(
+        _statusMeta,
+        status.isAcceptableOrUnknown(data['status']!, _statusMeta),
+      );
+    }
+    if (data.containsKey('exported_at')) {
+      context.handle(
+        _exportedAtMeta,
+        exportedAt.isAcceptableOrUnknown(data['exported_at']!, _exportedAtMeta),
+      );
     }
     return context;
   }
@@ -671,6 +1122,14 @@ class $ReportesTable extends Reportes
       idRemoto: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id_remoto'],
+      ),
+      clientId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}client_id'],
+      ),
+      installationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}installation_id'],
       ),
       usuarioId: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
@@ -776,6 +1235,26 @@ class $ReportesTable extends Reportes
         DriftSqlType.string,
         data['${effectivePrefix}resultado_segmentacion'],
       ),
+      lastSyncAttempt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}last_sync_attempt'],
+      ),
+      syncError: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sync_error'],
+      ),
+      retryCount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}retry_count'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+      cancelledAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}cancelled_at'],
+      ),
       createdAt: attachedDatabase.typeMapping.read(
         DriftSqlType.dateTime,
         data['${effectivePrefix}created_at'],
@@ -784,6 +1263,70 @@ class $ReportesTable extends Reportes
         DriftSqlType.dateTime,
         data['${effectivePrefix}updated_at'],
       )!,
+      campaignId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}campaign_id'],
+      ),
+      campaignName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}campaign_name'],
+      ),
+      collectorName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}collector_name'],
+      ),
+      collectorUniversityCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}collector_university_code'],
+      ),
+      photoFilename: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}photo_filename'],
+      ),
+      photoSizeBytes: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}photo_size_bytes'],
+      ),
+      imageWidth: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}image_width'],
+      ),
+      imageHeight: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}image_height'],
+      ),
+      municipality: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}municipality'],
+      ),
+      department: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}department'],
+      ),
+      country: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}country'],
+      ),
+      locationSource: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}location_source'],
+      ),
+      damageType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}damage_type'],
+      ),
+      surfaceType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}surface_type'],
+      ),
+      status: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}status'],
+      )!,
+      exportedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}exported_at'],
+      ),
     );
   }
 
@@ -798,6 +1341,8 @@ class ReporteLocalData extends DataClass
   final int id;
   final String idLocal;
   final String? idRemoto;
+  final String? clientId;
+  final String? installationId;
   final String? usuarioId;
   final String rutaFotoLocal;
   final String? fotoUrlRemota;
@@ -824,12 +1369,35 @@ class ReporteLocalData extends DataClass
   final String? clasificacionIa;
   final double? confianzaIa;
   final String? resultadoSegmentacion;
+  final DateTime? lastSyncAttempt;
+  final String? syncError;
+  final int retryCount;
+  final DateTime? deletedAt;
+  final DateTime? cancelledAt;
   final DateTime createdAt;
   final DateTime updatedAt;
+  final String? campaignId;
+  final String? campaignName;
+  final String? collectorName;
+  final String? collectorUniversityCode;
+  final String? photoFilename;
+  final int? photoSizeBytes;
+  final int? imageWidth;
+  final int? imageHeight;
+  final String? municipality;
+  final String? department;
+  final String? country;
+  final String? locationSource;
+  final String? damageType;
+  final String? surfaceType;
+  final String status;
+  final DateTime? exportedAt;
   const ReporteLocalData({
     required this.id,
     required this.idLocal,
     this.idRemoto,
+    this.clientId,
+    this.installationId,
     this.usuarioId,
     required this.rutaFotoLocal,
     this.fotoUrlRemota,
@@ -856,8 +1424,29 @@ class ReporteLocalData extends DataClass
     this.clasificacionIa,
     this.confianzaIa,
     this.resultadoSegmentacion,
+    this.lastSyncAttempt,
+    this.syncError,
+    required this.retryCount,
+    this.deletedAt,
+    this.cancelledAt,
     required this.createdAt,
     required this.updatedAt,
+    this.campaignId,
+    this.campaignName,
+    this.collectorName,
+    this.collectorUniversityCode,
+    this.photoFilename,
+    this.photoSizeBytes,
+    this.imageWidth,
+    this.imageHeight,
+    this.municipality,
+    this.department,
+    this.country,
+    this.locationSource,
+    this.damageType,
+    this.surfaceType,
+    required this.status,
+    this.exportedAt,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -866,6 +1455,12 @@ class ReporteLocalData extends DataClass
     map['id_local'] = Variable<String>(idLocal);
     if (!nullToAbsent || idRemoto != null) {
       map['id_remoto'] = Variable<String>(idRemoto);
+    }
+    if (!nullToAbsent || clientId != null) {
+      map['client_id'] = Variable<String>(clientId);
+    }
+    if (!nullToAbsent || installationId != null) {
+      map['installation_id'] = Variable<String>(installationId);
     }
     if (!nullToAbsent || usuarioId != null) {
       map['usuario_id'] = Variable<String>(usuarioId);
@@ -931,8 +1526,69 @@ class ReporteLocalData extends DataClass
     if (!nullToAbsent || resultadoSegmentacion != null) {
       map['resultado_segmentacion'] = Variable<String>(resultadoSegmentacion);
     }
+    if (!nullToAbsent || lastSyncAttempt != null) {
+      map['last_sync_attempt'] = Variable<DateTime>(lastSyncAttempt);
+    }
+    if (!nullToAbsent || syncError != null) {
+      map['sync_error'] = Variable<String>(syncError);
+    }
+    map['retry_count'] = Variable<int>(retryCount);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    if (!nullToAbsent || cancelledAt != null) {
+      map['cancelled_at'] = Variable<DateTime>(cancelledAt);
+    }
     map['created_at'] = Variable<DateTime>(createdAt);
     map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || campaignId != null) {
+      map['campaign_id'] = Variable<String>(campaignId);
+    }
+    if (!nullToAbsent || campaignName != null) {
+      map['campaign_name'] = Variable<String>(campaignName);
+    }
+    if (!nullToAbsent || collectorName != null) {
+      map['collector_name'] = Variable<String>(collectorName);
+    }
+    if (!nullToAbsent || collectorUniversityCode != null) {
+      map['collector_university_code'] = Variable<String>(
+        collectorUniversityCode,
+      );
+    }
+    if (!nullToAbsent || photoFilename != null) {
+      map['photo_filename'] = Variable<String>(photoFilename);
+    }
+    if (!nullToAbsent || photoSizeBytes != null) {
+      map['photo_size_bytes'] = Variable<int>(photoSizeBytes);
+    }
+    if (!nullToAbsent || imageWidth != null) {
+      map['image_width'] = Variable<int>(imageWidth);
+    }
+    if (!nullToAbsent || imageHeight != null) {
+      map['image_height'] = Variable<int>(imageHeight);
+    }
+    if (!nullToAbsent || municipality != null) {
+      map['municipality'] = Variable<String>(municipality);
+    }
+    if (!nullToAbsent || department != null) {
+      map['department'] = Variable<String>(department);
+    }
+    if (!nullToAbsent || country != null) {
+      map['country'] = Variable<String>(country);
+    }
+    if (!nullToAbsent || locationSource != null) {
+      map['location_source'] = Variable<String>(locationSource);
+    }
+    if (!nullToAbsent || damageType != null) {
+      map['damage_type'] = Variable<String>(damageType);
+    }
+    if (!nullToAbsent || surfaceType != null) {
+      map['surface_type'] = Variable<String>(surfaceType);
+    }
+    map['status'] = Variable<String>(status);
+    if (!nullToAbsent || exportedAt != null) {
+      map['exported_at'] = Variable<DateTime>(exportedAt);
+    }
     return map;
   }
 
@@ -943,6 +1599,12 @@ class ReporteLocalData extends DataClass
       idRemoto: idRemoto == null && nullToAbsent
           ? const Value.absent()
           : Value(idRemoto),
+      clientId: clientId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(clientId),
+      installationId: installationId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(installationId),
       usuarioId: usuarioId == null && nullToAbsent
           ? const Value.absent()
           : Value(usuarioId),
@@ -1005,8 +1667,67 @@ class ReporteLocalData extends DataClass
       resultadoSegmentacion: resultadoSegmentacion == null && nullToAbsent
           ? const Value.absent()
           : Value(resultadoSegmentacion),
+      lastSyncAttempt: lastSyncAttempt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastSyncAttempt),
+      syncError: syncError == null && nullToAbsent
+          ? const Value.absent()
+          : Value(syncError),
+      retryCount: Value(retryCount),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+      cancelledAt: cancelledAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(cancelledAt),
       createdAt: Value(createdAt),
       updatedAt: Value(updatedAt),
+      campaignId: campaignId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(campaignId),
+      campaignName: campaignName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(campaignName),
+      collectorName: collectorName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(collectorName),
+      collectorUniversityCode: collectorUniversityCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(collectorUniversityCode),
+      photoFilename: photoFilename == null && nullToAbsent
+          ? const Value.absent()
+          : Value(photoFilename),
+      photoSizeBytes: photoSizeBytes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(photoSizeBytes),
+      imageWidth: imageWidth == null && nullToAbsent
+          ? const Value.absent()
+          : Value(imageWidth),
+      imageHeight: imageHeight == null && nullToAbsent
+          ? const Value.absent()
+          : Value(imageHeight),
+      municipality: municipality == null && nullToAbsent
+          ? const Value.absent()
+          : Value(municipality),
+      department: department == null && nullToAbsent
+          ? const Value.absent()
+          : Value(department),
+      country: country == null && nullToAbsent
+          ? const Value.absent()
+          : Value(country),
+      locationSource: locationSource == null && nullToAbsent
+          ? const Value.absent()
+          : Value(locationSource),
+      damageType: damageType == null && nullToAbsent
+          ? const Value.absent()
+          : Value(damageType),
+      surfaceType: surfaceType == null && nullToAbsent
+          ? const Value.absent()
+          : Value(surfaceType),
+      status: Value(status),
+      exportedAt: exportedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(exportedAt),
     );
   }
 
@@ -1019,6 +1740,8 @@ class ReporteLocalData extends DataClass
       id: serializer.fromJson<int>(json['id']),
       idLocal: serializer.fromJson<String>(json['idLocal']),
       idRemoto: serializer.fromJson<String?>(json['idRemoto']),
+      clientId: serializer.fromJson<String?>(json['clientId']),
+      installationId: serializer.fromJson<String?>(json['installationId']),
       usuarioId: serializer.fromJson<String?>(json['usuarioId']),
       rutaFotoLocal: serializer.fromJson<String>(json['rutaFotoLocal']),
       fotoUrlRemota: serializer.fromJson<String?>(json['fotoUrlRemota']),
@@ -1057,8 +1780,31 @@ class ReporteLocalData extends DataClass
       resultadoSegmentacion: serializer.fromJson<String?>(
         json['resultadoSegmentacion'],
       ),
+      lastSyncAttempt: serializer.fromJson<DateTime?>(json['lastSyncAttempt']),
+      syncError: serializer.fromJson<String?>(json['syncError']),
+      retryCount: serializer.fromJson<int>(json['retryCount']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+      cancelledAt: serializer.fromJson<DateTime?>(json['cancelledAt']),
       createdAt: serializer.fromJson<DateTime>(json['createdAt']),
       updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      campaignId: serializer.fromJson<String?>(json['campaignId']),
+      campaignName: serializer.fromJson<String?>(json['campaignName']),
+      collectorName: serializer.fromJson<String?>(json['collectorName']),
+      collectorUniversityCode: serializer.fromJson<String?>(
+        json['collectorUniversityCode'],
+      ),
+      photoFilename: serializer.fromJson<String?>(json['photoFilename']),
+      photoSizeBytes: serializer.fromJson<int?>(json['photoSizeBytes']),
+      imageWidth: serializer.fromJson<int?>(json['imageWidth']),
+      imageHeight: serializer.fromJson<int?>(json['imageHeight']),
+      municipality: serializer.fromJson<String?>(json['municipality']),
+      department: serializer.fromJson<String?>(json['department']),
+      country: serializer.fromJson<String?>(json['country']),
+      locationSource: serializer.fromJson<String?>(json['locationSource']),
+      damageType: serializer.fromJson<String?>(json['damageType']),
+      surfaceType: serializer.fromJson<String?>(json['surfaceType']),
+      status: serializer.fromJson<String>(json['status']),
+      exportedAt: serializer.fromJson<DateTime?>(json['exportedAt']),
     );
   }
   @override
@@ -1068,6 +1814,8 @@ class ReporteLocalData extends DataClass
       'id': serializer.toJson<int>(id),
       'idLocal': serializer.toJson<String>(idLocal),
       'idRemoto': serializer.toJson<String?>(idRemoto),
+      'clientId': serializer.toJson<String?>(clientId),
+      'installationId': serializer.toJson<String?>(installationId),
       'usuarioId': serializer.toJson<String?>(usuarioId),
       'rutaFotoLocal': serializer.toJson<String>(rutaFotoLocal),
       'fotoUrlRemota': serializer.toJson<String?>(fotoUrlRemota),
@@ -1100,8 +1848,31 @@ class ReporteLocalData extends DataClass
       'resultadoSegmentacion': serializer.toJson<String?>(
         resultadoSegmentacion,
       ),
+      'lastSyncAttempt': serializer.toJson<DateTime?>(lastSyncAttempt),
+      'syncError': serializer.toJson<String?>(syncError),
+      'retryCount': serializer.toJson<int>(retryCount),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+      'cancelledAt': serializer.toJson<DateTime?>(cancelledAt),
       'createdAt': serializer.toJson<DateTime>(createdAt),
       'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'campaignId': serializer.toJson<String?>(campaignId),
+      'campaignName': serializer.toJson<String?>(campaignName),
+      'collectorName': serializer.toJson<String?>(collectorName),
+      'collectorUniversityCode': serializer.toJson<String?>(
+        collectorUniversityCode,
+      ),
+      'photoFilename': serializer.toJson<String?>(photoFilename),
+      'photoSizeBytes': serializer.toJson<int?>(photoSizeBytes),
+      'imageWidth': serializer.toJson<int?>(imageWidth),
+      'imageHeight': serializer.toJson<int?>(imageHeight),
+      'municipality': serializer.toJson<String?>(municipality),
+      'department': serializer.toJson<String?>(department),
+      'country': serializer.toJson<String?>(country),
+      'locationSource': serializer.toJson<String?>(locationSource),
+      'damageType': serializer.toJson<String?>(damageType),
+      'surfaceType': serializer.toJson<String?>(surfaceType),
+      'status': serializer.toJson<String>(status),
+      'exportedAt': serializer.toJson<DateTime?>(exportedAt),
     };
   }
 
@@ -1109,6 +1880,8 @@ class ReporteLocalData extends DataClass
     int? id,
     String? idLocal,
     Value<String?> idRemoto = const Value.absent(),
+    Value<String?> clientId = const Value.absent(),
+    Value<String?> installationId = const Value.absent(),
     Value<String?> usuarioId = const Value.absent(),
     String? rutaFotoLocal,
     Value<String?> fotoUrlRemota = const Value.absent(),
@@ -1135,12 +1908,37 @@ class ReporteLocalData extends DataClass
     Value<String?> clasificacionIa = const Value.absent(),
     Value<double?> confianzaIa = const Value.absent(),
     Value<String?> resultadoSegmentacion = const Value.absent(),
+    Value<DateTime?> lastSyncAttempt = const Value.absent(),
+    Value<String?> syncError = const Value.absent(),
+    int? retryCount,
+    Value<DateTime?> deletedAt = const Value.absent(),
+    Value<DateTime?> cancelledAt = const Value.absent(),
     DateTime? createdAt,
     DateTime? updatedAt,
+    Value<String?> campaignId = const Value.absent(),
+    Value<String?> campaignName = const Value.absent(),
+    Value<String?> collectorName = const Value.absent(),
+    Value<String?> collectorUniversityCode = const Value.absent(),
+    Value<String?> photoFilename = const Value.absent(),
+    Value<int?> photoSizeBytes = const Value.absent(),
+    Value<int?> imageWidth = const Value.absent(),
+    Value<int?> imageHeight = const Value.absent(),
+    Value<String?> municipality = const Value.absent(),
+    Value<String?> department = const Value.absent(),
+    Value<String?> country = const Value.absent(),
+    Value<String?> locationSource = const Value.absent(),
+    Value<String?> damageType = const Value.absent(),
+    Value<String?> surfaceType = const Value.absent(),
+    String? status,
+    Value<DateTime?> exportedAt = const Value.absent(),
   }) => ReporteLocalData(
     id: id ?? this.id,
     idLocal: idLocal ?? this.idLocal,
     idRemoto: idRemoto.present ? idRemoto.value : this.idRemoto,
+    clientId: clientId.present ? clientId.value : this.clientId,
+    installationId: installationId.present
+        ? installationId.value
+        : this.installationId,
     usuarioId: usuarioId.present ? usuarioId.value : this.usuarioId,
     rutaFotoLocal: rutaFotoLocal ?? this.rutaFotoLocal,
     fotoUrlRemota: fotoUrlRemota.present
@@ -1189,14 +1987,51 @@ class ReporteLocalData extends DataClass
     resultadoSegmentacion: resultadoSegmentacion.present
         ? resultadoSegmentacion.value
         : this.resultadoSegmentacion,
+    lastSyncAttempt: lastSyncAttempt.present
+        ? lastSyncAttempt.value
+        : this.lastSyncAttempt,
+    syncError: syncError.present ? syncError.value : this.syncError,
+    retryCount: retryCount ?? this.retryCount,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+    cancelledAt: cancelledAt.present ? cancelledAt.value : this.cancelledAt,
     createdAt: createdAt ?? this.createdAt,
     updatedAt: updatedAt ?? this.updatedAt,
+    campaignId: campaignId.present ? campaignId.value : this.campaignId,
+    campaignName: campaignName.present ? campaignName.value : this.campaignName,
+    collectorName: collectorName.present
+        ? collectorName.value
+        : this.collectorName,
+    collectorUniversityCode: collectorUniversityCode.present
+        ? collectorUniversityCode.value
+        : this.collectorUniversityCode,
+    photoFilename: photoFilename.present
+        ? photoFilename.value
+        : this.photoFilename,
+    photoSizeBytes: photoSizeBytes.present
+        ? photoSizeBytes.value
+        : this.photoSizeBytes,
+    imageWidth: imageWidth.present ? imageWidth.value : this.imageWidth,
+    imageHeight: imageHeight.present ? imageHeight.value : this.imageHeight,
+    municipality: municipality.present ? municipality.value : this.municipality,
+    department: department.present ? department.value : this.department,
+    country: country.present ? country.value : this.country,
+    locationSource: locationSource.present
+        ? locationSource.value
+        : this.locationSource,
+    damageType: damageType.present ? damageType.value : this.damageType,
+    surfaceType: surfaceType.present ? surfaceType.value : this.surfaceType,
+    status: status ?? this.status,
+    exportedAt: exportedAt.present ? exportedAt.value : this.exportedAt,
   );
   ReporteLocalData copyWithCompanion(ReportesCompanion data) {
     return ReporteLocalData(
       id: data.id.present ? data.id.value : this.id,
       idLocal: data.idLocal.present ? data.idLocal.value : this.idLocal,
       idRemoto: data.idRemoto.present ? data.idRemoto.value : this.idRemoto,
+      clientId: data.clientId.present ? data.clientId.value : this.clientId,
+      installationId: data.installationId.present
+          ? data.installationId.value
+          : this.installationId,
       usuarioId: data.usuarioId.present ? data.usuarioId.value : this.usuarioId,
       rutaFotoLocal: data.rutaFotoLocal.present
           ? data.rutaFotoLocal.value
@@ -1257,8 +2092,63 @@ class ReporteLocalData extends DataClass
       resultadoSegmentacion: data.resultadoSegmentacion.present
           ? data.resultadoSegmentacion.value
           : this.resultadoSegmentacion,
+      lastSyncAttempt: data.lastSyncAttempt.present
+          ? data.lastSyncAttempt.value
+          : this.lastSyncAttempt,
+      syncError: data.syncError.present ? data.syncError.value : this.syncError,
+      retryCount: data.retryCount.present
+          ? data.retryCount.value
+          : this.retryCount,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+      cancelledAt: data.cancelledAt.present
+          ? data.cancelledAt.value
+          : this.cancelledAt,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      campaignId: data.campaignId.present
+          ? data.campaignId.value
+          : this.campaignId,
+      campaignName: data.campaignName.present
+          ? data.campaignName.value
+          : this.campaignName,
+      collectorName: data.collectorName.present
+          ? data.collectorName.value
+          : this.collectorName,
+      collectorUniversityCode: data.collectorUniversityCode.present
+          ? data.collectorUniversityCode.value
+          : this.collectorUniversityCode,
+      photoFilename: data.photoFilename.present
+          ? data.photoFilename.value
+          : this.photoFilename,
+      photoSizeBytes: data.photoSizeBytes.present
+          ? data.photoSizeBytes.value
+          : this.photoSizeBytes,
+      imageWidth: data.imageWidth.present
+          ? data.imageWidth.value
+          : this.imageWidth,
+      imageHeight: data.imageHeight.present
+          ? data.imageHeight.value
+          : this.imageHeight,
+      municipality: data.municipality.present
+          ? data.municipality.value
+          : this.municipality,
+      department: data.department.present
+          ? data.department.value
+          : this.department,
+      country: data.country.present ? data.country.value : this.country,
+      locationSource: data.locationSource.present
+          ? data.locationSource.value
+          : this.locationSource,
+      damageType: data.damageType.present
+          ? data.damageType.value
+          : this.damageType,
+      surfaceType: data.surfaceType.present
+          ? data.surfaceType.value
+          : this.surfaceType,
+      status: data.status.present ? data.status.value : this.status,
+      exportedAt: data.exportedAt.present
+          ? data.exportedAt.value
+          : this.exportedAt,
     );
   }
 
@@ -1268,6 +2158,8 @@ class ReporteLocalData extends DataClass
           ..write('id: $id, ')
           ..write('idLocal: $idLocal, ')
           ..write('idRemoto: $idRemoto, ')
+          ..write('clientId: $clientId, ')
+          ..write('installationId: $installationId, ')
           ..write('usuarioId: $usuarioId, ')
           ..write('rutaFotoLocal: $rutaFotoLocal, ')
           ..write('fotoUrlRemota: $fotoUrlRemota, ')
@@ -1294,8 +2186,29 @@ class ReporteLocalData extends DataClass
           ..write('clasificacionIa: $clasificacionIa, ')
           ..write('confianzaIa: $confianzaIa, ')
           ..write('resultadoSegmentacion: $resultadoSegmentacion, ')
+          ..write('lastSyncAttempt: $lastSyncAttempt, ')
+          ..write('syncError: $syncError, ')
+          ..write('retryCount: $retryCount, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('cancelledAt: $cancelledAt, ')
           ..write('createdAt: $createdAt, ')
-          ..write('updatedAt: $updatedAt')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('campaignId: $campaignId, ')
+          ..write('campaignName: $campaignName, ')
+          ..write('collectorName: $collectorName, ')
+          ..write('collectorUniversityCode: $collectorUniversityCode, ')
+          ..write('photoFilename: $photoFilename, ')
+          ..write('photoSizeBytes: $photoSizeBytes, ')
+          ..write('imageWidth: $imageWidth, ')
+          ..write('imageHeight: $imageHeight, ')
+          ..write('municipality: $municipality, ')
+          ..write('department: $department, ')
+          ..write('country: $country, ')
+          ..write('locationSource: $locationSource, ')
+          ..write('damageType: $damageType, ')
+          ..write('surfaceType: $surfaceType, ')
+          ..write('status: $status, ')
+          ..write('exportedAt: $exportedAt')
           ..write(')'))
         .toString();
   }
@@ -1305,6 +2218,8 @@ class ReporteLocalData extends DataClass
     id,
     idLocal,
     idRemoto,
+    clientId,
+    installationId,
     usuarioId,
     rutaFotoLocal,
     fotoUrlRemota,
@@ -1331,8 +2246,29 @@ class ReporteLocalData extends DataClass
     clasificacionIa,
     confianzaIa,
     resultadoSegmentacion,
+    lastSyncAttempt,
+    syncError,
+    retryCount,
+    deletedAt,
+    cancelledAt,
     createdAt,
     updatedAt,
+    campaignId,
+    campaignName,
+    collectorName,
+    collectorUniversityCode,
+    photoFilename,
+    photoSizeBytes,
+    imageWidth,
+    imageHeight,
+    municipality,
+    department,
+    country,
+    locationSource,
+    damageType,
+    surfaceType,
+    status,
+    exportedAt,
   ]);
   @override
   bool operator ==(Object other) =>
@@ -1341,6 +2277,8 @@ class ReporteLocalData extends DataClass
           other.id == this.id &&
           other.idLocal == this.idLocal &&
           other.idRemoto == this.idRemoto &&
+          other.clientId == this.clientId &&
+          other.installationId == this.installationId &&
           other.usuarioId == this.usuarioId &&
           other.rutaFotoLocal == this.rutaFotoLocal &&
           other.fotoUrlRemota == this.fotoUrlRemota &&
@@ -1367,14 +2305,37 @@ class ReporteLocalData extends DataClass
           other.clasificacionIa == this.clasificacionIa &&
           other.confianzaIa == this.confianzaIa &&
           other.resultadoSegmentacion == this.resultadoSegmentacion &&
+          other.lastSyncAttempt == this.lastSyncAttempt &&
+          other.syncError == this.syncError &&
+          other.retryCount == this.retryCount &&
+          other.deletedAt == this.deletedAt &&
+          other.cancelledAt == this.cancelledAt &&
           other.createdAt == this.createdAt &&
-          other.updatedAt == this.updatedAt);
+          other.updatedAt == this.updatedAt &&
+          other.campaignId == this.campaignId &&
+          other.campaignName == this.campaignName &&
+          other.collectorName == this.collectorName &&
+          other.collectorUniversityCode == this.collectorUniversityCode &&
+          other.photoFilename == this.photoFilename &&
+          other.photoSizeBytes == this.photoSizeBytes &&
+          other.imageWidth == this.imageWidth &&
+          other.imageHeight == this.imageHeight &&
+          other.municipality == this.municipality &&
+          other.department == this.department &&
+          other.country == this.country &&
+          other.locationSource == this.locationSource &&
+          other.damageType == this.damageType &&
+          other.surfaceType == this.surfaceType &&
+          other.status == this.status &&
+          other.exportedAt == this.exportedAt);
 }
 
 class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
   final Value<int> id;
   final Value<String> idLocal;
   final Value<String?> idRemoto;
+  final Value<String?> clientId;
+  final Value<String?> installationId;
   final Value<String?> usuarioId;
   final Value<String> rutaFotoLocal;
   final Value<String?> fotoUrlRemota;
@@ -1401,12 +2362,35 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
   final Value<String?> clasificacionIa;
   final Value<double?> confianzaIa;
   final Value<String?> resultadoSegmentacion;
+  final Value<DateTime?> lastSyncAttempt;
+  final Value<String?> syncError;
+  final Value<int> retryCount;
+  final Value<DateTime?> deletedAt;
+  final Value<DateTime?> cancelledAt;
   final Value<DateTime> createdAt;
   final Value<DateTime> updatedAt;
+  final Value<String?> campaignId;
+  final Value<String?> campaignName;
+  final Value<String?> collectorName;
+  final Value<String?> collectorUniversityCode;
+  final Value<String?> photoFilename;
+  final Value<int?> photoSizeBytes;
+  final Value<int?> imageWidth;
+  final Value<int?> imageHeight;
+  final Value<String?> municipality;
+  final Value<String?> department;
+  final Value<String?> country;
+  final Value<String?> locationSource;
+  final Value<String?> damageType;
+  final Value<String?> surfaceType;
+  final Value<String> status;
+  final Value<DateTime?> exportedAt;
   const ReportesCompanion({
     this.id = const Value.absent(),
     this.idLocal = const Value.absent(),
     this.idRemoto = const Value.absent(),
+    this.clientId = const Value.absent(),
+    this.installationId = const Value.absent(),
     this.usuarioId = const Value.absent(),
     this.rutaFotoLocal = const Value.absent(),
     this.fotoUrlRemota = const Value.absent(),
@@ -1433,13 +2417,36 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
     this.clasificacionIa = const Value.absent(),
     this.confianzaIa = const Value.absent(),
     this.resultadoSegmentacion = const Value.absent(),
+    this.lastSyncAttempt = const Value.absent(),
+    this.syncError = const Value.absent(),
+    this.retryCount = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.cancelledAt = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
+    this.campaignId = const Value.absent(),
+    this.campaignName = const Value.absent(),
+    this.collectorName = const Value.absent(),
+    this.collectorUniversityCode = const Value.absent(),
+    this.photoFilename = const Value.absent(),
+    this.photoSizeBytes = const Value.absent(),
+    this.imageWidth = const Value.absent(),
+    this.imageHeight = const Value.absent(),
+    this.municipality = const Value.absent(),
+    this.department = const Value.absent(),
+    this.country = const Value.absent(),
+    this.locationSource = const Value.absent(),
+    this.damageType = const Value.absent(),
+    this.surfaceType = const Value.absent(),
+    this.status = const Value.absent(),
+    this.exportedAt = const Value.absent(),
   });
   ReportesCompanion.insert({
     this.id = const Value.absent(),
     required String idLocal,
     this.idRemoto = const Value.absent(),
+    this.clientId = const Value.absent(),
+    this.installationId = const Value.absent(),
     this.usuarioId = const Value.absent(),
     required String rutaFotoLocal,
     this.fotoUrlRemota = const Value.absent(),
@@ -1466,8 +2473,29 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
     this.clasificacionIa = const Value.absent(),
     this.confianzaIa = const Value.absent(),
     this.resultadoSegmentacion = const Value.absent(),
+    this.lastSyncAttempt = const Value.absent(),
+    this.syncError = const Value.absent(),
+    this.retryCount = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.cancelledAt = const Value.absent(),
     required DateTime createdAt,
     required DateTime updatedAt,
+    this.campaignId = const Value.absent(),
+    this.campaignName = const Value.absent(),
+    this.collectorName = const Value.absent(),
+    this.collectorUniversityCode = const Value.absent(),
+    this.photoFilename = const Value.absent(),
+    this.photoSizeBytes = const Value.absent(),
+    this.imageWidth = const Value.absent(),
+    this.imageHeight = const Value.absent(),
+    this.municipality = const Value.absent(),
+    this.department = const Value.absent(),
+    this.country = const Value.absent(),
+    this.locationSource = const Value.absent(),
+    this.damageType = const Value.absent(),
+    this.surfaceType = const Value.absent(),
+    this.status = const Value.absent(),
+    this.exportedAt = const Value.absent(),
   }) : idLocal = Value(idLocal),
        rutaFotoLocal = Value(rutaFotoLocal),
        latitud = Value(latitud),
@@ -1483,6 +2511,8 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
     Expression<int>? id,
     Expression<String>? idLocal,
     Expression<String>? idRemoto,
+    Expression<String>? clientId,
+    Expression<String>? installationId,
     Expression<String>? usuarioId,
     Expression<String>? rutaFotoLocal,
     Expression<String>? fotoUrlRemota,
@@ -1509,13 +2539,36 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
     Expression<String>? clasificacionIa,
     Expression<double>? confianzaIa,
     Expression<String>? resultadoSegmentacion,
+    Expression<DateTime>? lastSyncAttempt,
+    Expression<String>? syncError,
+    Expression<int>? retryCount,
+    Expression<DateTime>? deletedAt,
+    Expression<DateTime>? cancelledAt,
     Expression<DateTime>? createdAt,
     Expression<DateTime>? updatedAt,
+    Expression<String>? campaignId,
+    Expression<String>? campaignName,
+    Expression<String>? collectorName,
+    Expression<String>? collectorUniversityCode,
+    Expression<String>? photoFilename,
+    Expression<int>? photoSizeBytes,
+    Expression<int>? imageWidth,
+    Expression<int>? imageHeight,
+    Expression<String>? municipality,
+    Expression<String>? department,
+    Expression<String>? country,
+    Expression<String>? locationSource,
+    Expression<String>? damageType,
+    Expression<String>? surfaceType,
+    Expression<String>? status,
+    Expression<DateTime>? exportedAt,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (idLocal != null) 'id_local': idLocal,
       if (idRemoto != null) 'id_remoto': idRemoto,
+      if (clientId != null) 'client_id': clientId,
+      if (installationId != null) 'installation_id': installationId,
       if (usuarioId != null) 'usuario_id': usuarioId,
       if (rutaFotoLocal != null) 'ruta_foto_local': rutaFotoLocal,
       if (fotoUrlRemota != null) 'foto_url_remota': fotoUrlRemota,
@@ -1548,8 +2601,30 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
       if (confianzaIa != null) 'confianza_ia': confianzaIa,
       if (resultadoSegmentacion != null)
         'resultado_segmentacion': resultadoSegmentacion,
+      if (lastSyncAttempt != null) 'last_sync_attempt': lastSyncAttempt,
+      if (syncError != null) 'sync_error': syncError,
+      if (retryCount != null) 'retry_count': retryCount,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (cancelledAt != null) 'cancelled_at': cancelledAt,
       if (createdAt != null) 'created_at': createdAt,
       if (updatedAt != null) 'updated_at': updatedAt,
+      if (campaignId != null) 'campaign_id': campaignId,
+      if (campaignName != null) 'campaign_name': campaignName,
+      if (collectorName != null) 'collector_name': collectorName,
+      if (collectorUniversityCode != null)
+        'collector_university_code': collectorUniversityCode,
+      if (photoFilename != null) 'photo_filename': photoFilename,
+      if (photoSizeBytes != null) 'photo_size_bytes': photoSizeBytes,
+      if (imageWidth != null) 'image_width': imageWidth,
+      if (imageHeight != null) 'image_height': imageHeight,
+      if (municipality != null) 'municipality': municipality,
+      if (department != null) 'department': department,
+      if (country != null) 'country': country,
+      if (locationSource != null) 'location_source': locationSource,
+      if (damageType != null) 'damage_type': damageType,
+      if (surfaceType != null) 'surface_type': surfaceType,
+      if (status != null) 'status': status,
+      if (exportedAt != null) 'exported_at': exportedAt,
     });
   }
 
@@ -1557,6 +2632,8 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
     Value<int>? id,
     Value<String>? idLocal,
     Value<String?>? idRemoto,
+    Value<String?>? clientId,
+    Value<String?>? installationId,
     Value<String?>? usuarioId,
     Value<String>? rutaFotoLocal,
     Value<String?>? fotoUrlRemota,
@@ -1583,13 +2660,36 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
     Value<String?>? clasificacionIa,
     Value<double?>? confianzaIa,
     Value<String?>? resultadoSegmentacion,
+    Value<DateTime?>? lastSyncAttempt,
+    Value<String?>? syncError,
+    Value<int>? retryCount,
+    Value<DateTime?>? deletedAt,
+    Value<DateTime?>? cancelledAt,
     Value<DateTime>? createdAt,
     Value<DateTime>? updatedAt,
+    Value<String?>? campaignId,
+    Value<String?>? campaignName,
+    Value<String?>? collectorName,
+    Value<String?>? collectorUniversityCode,
+    Value<String?>? photoFilename,
+    Value<int?>? photoSizeBytes,
+    Value<int?>? imageWidth,
+    Value<int?>? imageHeight,
+    Value<String?>? municipality,
+    Value<String?>? department,
+    Value<String?>? country,
+    Value<String?>? locationSource,
+    Value<String?>? damageType,
+    Value<String?>? surfaceType,
+    Value<String>? status,
+    Value<DateTime?>? exportedAt,
   }) {
     return ReportesCompanion(
       id: id ?? this.id,
       idLocal: idLocal ?? this.idLocal,
       idRemoto: idRemoto ?? this.idRemoto,
+      clientId: clientId ?? this.clientId,
+      installationId: installationId ?? this.installationId,
       usuarioId: usuarioId ?? this.usuarioId,
       rutaFotoLocal: rutaFotoLocal ?? this.rutaFotoLocal,
       fotoUrlRemota: fotoUrlRemota ?? this.fotoUrlRemota,
@@ -1619,8 +2719,30 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
       confianzaIa: confianzaIa ?? this.confianzaIa,
       resultadoSegmentacion:
           resultadoSegmentacion ?? this.resultadoSegmentacion,
+      lastSyncAttempt: lastSyncAttempt ?? this.lastSyncAttempt,
+      syncError: syncError ?? this.syncError,
+      retryCount: retryCount ?? this.retryCount,
+      deletedAt: deletedAt ?? this.deletedAt,
+      cancelledAt: cancelledAt ?? this.cancelledAt,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
+      campaignId: campaignId ?? this.campaignId,
+      campaignName: campaignName ?? this.campaignName,
+      collectorName: collectorName ?? this.collectorName,
+      collectorUniversityCode:
+          collectorUniversityCode ?? this.collectorUniversityCode,
+      photoFilename: photoFilename ?? this.photoFilename,
+      photoSizeBytes: photoSizeBytes ?? this.photoSizeBytes,
+      imageWidth: imageWidth ?? this.imageWidth,
+      imageHeight: imageHeight ?? this.imageHeight,
+      municipality: municipality ?? this.municipality,
+      department: department ?? this.department,
+      country: country ?? this.country,
+      locationSource: locationSource ?? this.locationSource,
+      damageType: damageType ?? this.damageType,
+      surfaceType: surfaceType ?? this.surfaceType,
+      status: status ?? this.status,
+      exportedAt: exportedAt ?? this.exportedAt,
     );
   }
 
@@ -1635,6 +2757,12 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
     }
     if (idRemoto.present) {
       map['id_remoto'] = Variable<String>(idRemoto.value);
+    }
+    if (clientId.present) {
+      map['client_id'] = Variable<String>(clientId.value);
+    }
+    if (installationId.present) {
+      map['installation_id'] = Variable<String>(installationId.value);
     }
     if (usuarioId.present) {
       map['usuario_id'] = Variable<String>(usuarioId.value);
@@ -1726,11 +2854,76 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
         resultadoSegmentacion.value,
       );
     }
+    if (lastSyncAttempt.present) {
+      map['last_sync_attempt'] = Variable<DateTime>(lastSyncAttempt.value);
+    }
+    if (syncError.present) {
+      map['sync_error'] = Variable<String>(syncError.value);
+    }
+    if (retryCount.present) {
+      map['retry_count'] = Variable<int>(retryCount.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (cancelledAt.present) {
+      map['cancelled_at'] = Variable<DateTime>(cancelledAt.value);
+    }
     if (createdAt.present) {
       map['created_at'] = Variable<DateTime>(createdAt.value);
     }
     if (updatedAt.present) {
       map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (campaignId.present) {
+      map['campaign_id'] = Variable<String>(campaignId.value);
+    }
+    if (campaignName.present) {
+      map['campaign_name'] = Variable<String>(campaignName.value);
+    }
+    if (collectorName.present) {
+      map['collector_name'] = Variable<String>(collectorName.value);
+    }
+    if (collectorUniversityCode.present) {
+      map['collector_university_code'] = Variable<String>(
+        collectorUniversityCode.value,
+      );
+    }
+    if (photoFilename.present) {
+      map['photo_filename'] = Variable<String>(photoFilename.value);
+    }
+    if (photoSizeBytes.present) {
+      map['photo_size_bytes'] = Variable<int>(photoSizeBytes.value);
+    }
+    if (imageWidth.present) {
+      map['image_width'] = Variable<int>(imageWidth.value);
+    }
+    if (imageHeight.present) {
+      map['image_height'] = Variable<int>(imageHeight.value);
+    }
+    if (municipality.present) {
+      map['municipality'] = Variable<String>(municipality.value);
+    }
+    if (department.present) {
+      map['department'] = Variable<String>(department.value);
+    }
+    if (country.present) {
+      map['country'] = Variable<String>(country.value);
+    }
+    if (locationSource.present) {
+      map['location_source'] = Variable<String>(locationSource.value);
+    }
+    if (damageType.present) {
+      map['damage_type'] = Variable<String>(damageType.value);
+    }
+    if (surfaceType.present) {
+      map['surface_type'] = Variable<String>(surfaceType.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(status.value);
+    }
+    if (exportedAt.present) {
+      map['exported_at'] = Variable<DateTime>(exportedAt.value);
     }
     return map;
   }
@@ -1741,6 +2934,8 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
           ..write('id: $id, ')
           ..write('idLocal: $idLocal, ')
           ..write('idRemoto: $idRemoto, ')
+          ..write('clientId: $clientId, ')
+          ..write('installationId: $installationId, ')
           ..write('usuarioId: $usuarioId, ')
           ..write('rutaFotoLocal: $rutaFotoLocal, ')
           ..write('fotoUrlRemota: $fotoUrlRemota, ')
@@ -1767,8 +2962,29 @@ class ReportesCompanion extends UpdateCompanion<ReporteLocalData> {
           ..write('clasificacionIa: $clasificacionIa, ')
           ..write('confianzaIa: $confianzaIa, ')
           ..write('resultadoSegmentacion: $resultadoSegmentacion, ')
+          ..write('lastSyncAttempt: $lastSyncAttempt, ')
+          ..write('syncError: $syncError, ')
+          ..write('retryCount: $retryCount, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('cancelledAt: $cancelledAt, ')
           ..write('createdAt: $createdAt, ')
-          ..write('updatedAt: $updatedAt')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('campaignId: $campaignId, ')
+          ..write('campaignName: $campaignName, ')
+          ..write('collectorName: $collectorName, ')
+          ..write('collectorUniversityCode: $collectorUniversityCode, ')
+          ..write('photoFilename: $photoFilename, ')
+          ..write('photoSizeBytes: $photoSizeBytes, ')
+          ..write('imageWidth: $imageWidth, ')
+          ..write('imageHeight: $imageHeight, ')
+          ..write('municipality: $municipality, ')
+          ..write('department: $department, ')
+          ..write('country: $country, ')
+          ..write('locationSource: $locationSource, ')
+          ..write('damageType: $damageType, ')
+          ..write('surfaceType: $surfaceType, ')
+          ..write('status: $status, ')
+          ..write('exportedAt: $exportedAt')
           ..write(')'))
         .toString();
   }
@@ -1789,6 +3005,8 @@ typedef $$ReportesTableCreateCompanionBuilder = ReportesCompanion Function({
   Value<int> id,
   required String idLocal,
   Value<String?> idRemoto,
+  Value<String?> clientId,
+  Value<String?> installationId,
   Value<String?> usuarioId,
   required String rutaFotoLocal,
   Value<String?> fotoUrlRemota,
@@ -1815,13 +3033,36 @@ typedef $$ReportesTableCreateCompanionBuilder = ReportesCompanion Function({
   Value<String?> clasificacionIa,
   Value<double?> confianzaIa,
   Value<String?> resultadoSegmentacion,
+  Value<DateTime?> lastSyncAttempt,
+  Value<String?> syncError,
+  Value<int> retryCount,
+  Value<DateTime?> deletedAt,
+  Value<DateTime?> cancelledAt,
   required DateTime createdAt,
   required DateTime updatedAt,
+  Value<String?> campaignId,
+  Value<String?> campaignName,
+  Value<String?> collectorName,
+  Value<String?> collectorUniversityCode,
+  Value<String?> photoFilename,
+  Value<int?> photoSizeBytes,
+  Value<int?> imageWidth,
+  Value<int?> imageHeight,
+  Value<String?> municipality,
+  Value<String?> department,
+  Value<String?> country,
+  Value<String?> locationSource,
+  Value<String?> damageType,
+  Value<String?> surfaceType,
+  Value<String> status,
+  Value<DateTime?> exportedAt,
 });
 typedef $$ReportesTableUpdateCompanionBuilder = ReportesCompanion Function({
   Value<int> id,
   Value<String> idLocal,
   Value<String?> idRemoto,
+  Value<String?> clientId,
+  Value<String?> installationId,
   Value<String?> usuarioId,
   Value<String> rutaFotoLocal,
   Value<String?> fotoUrlRemota,
@@ -1848,8 +3089,29 @@ typedef $$ReportesTableUpdateCompanionBuilder = ReportesCompanion Function({
   Value<String?> clasificacionIa,
   Value<double?> confianzaIa,
   Value<String?> resultadoSegmentacion,
+  Value<DateTime?> lastSyncAttempt,
+  Value<String?> syncError,
+  Value<int> retryCount,
+  Value<DateTime?> deletedAt,
+  Value<DateTime?> cancelledAt,
   Value<DateTime> createdAt,
   Value<DateTime> updatedAt,
+  Value<String?> campaignId,
+  Value<String?> campaignName,
+  Value<String?> collectorName,
+  Value<String?> collectorUniversityCode,
+  Value<String?> photoFilename,
+  Value<int?> photoSizeBytes,
+  Value<int?> imageWidth,
+  Value<int?> imageHeight,
+  Value<String?> municipality,
+  Value<String?> department,
+  Value<String?> country,
+  Value<String?> locationSource,
+  Value<String?> damageType,
+  Value<String?> surfaceType,
+  Value<String> status,
+  Value<DateTime?> exportedAt,
 });
 
 class $$ReportesTableFilterComposer
@@ -1873,6 +3135,16 @@ class $$ReportesTableFilterComposer
 
   ColumnFilters<String> get idRemoto => $composableBuilder(
     column: $table.idRemoto,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get clientId => $composableBuilder(
+    column: $table.clientId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get installationId => $composableBuilder(
+    column: $table.installationId,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -2006,6 +3278,31 @@ class $$ReportesTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
+  ColumnFilters<DateTime> get lastSyncAttempt => $composableBuilder(
+    column: $table.lastSyncAttempt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get syncError => $composableBuilder(
+    column: $table.syncError,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get retryCount => $composableBuilder(
+    column: $table.retryCount,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get cancelledAt => $composableBuilder(
+    column: $table.cancelledAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
     column: $table.createdAt,
     builder: (column) => ColumnFilters(column),
@@ -2013,6 +3310,86 @@ class $$ReportesTableFilterComposer
 
   ColumnFilters<DateTime> get updatedAt => $composableBuilder(
     column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get campaignId => $composableBuilder(
+    column: $table.campaignId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get campaignName => $composableBuilder(
+    column: $table.campaignName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get collectorName => $composableBuilder(
+    column: $table.collectorName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get collectorUniversityCode => $composableBuilder(
+    column: $table.collectorUniversityCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get photoFilename => $composableBuilder(
+    column: $table.photoFilename,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get photoSizeBytes => $composableBuilder(
+    column: $table.photoSizeBytes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get imageWidth => $composableBuilder(
+    column: $table.imageWidth,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get imageHeight => $composableBuilder(
+    column: $table.imageHeight,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get municipality => $composableBuilder(
+    column: $table.municipality,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get department => $composableBuilder(
+    column: $table.department,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get country => $composableBuilder(
+    column: $table.country,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get locationSource => $composableBuilder(
+    column: $table.locationSource,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get damageType => $composableBuilder(
+    column: $table.damageType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get surfaceType => $composableBuilder(
+    column: $table.surfaceType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get exportedAt => $composableBuilder(
+    column: $table.exportedAt,
     builder: (column) => ColumnFilters(column),
   );
 }
@@ -2038,6 +3415,16 @@ class $$ReportesTableOrderingComposer
 
   ColumnOrderings<String> get idRemoto => $composableBuilder(
     column: $table.idRemoto,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get clientId => $composableBuilder(
+    column: $table.clientId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get installationId => $composableBuilder(
+    column: $table.installationId,
     builder: (column) => ColumnOrderings(column),
   );
 
@@ -2171,6 +3558,31 @@ class $$ReportesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<DateTime> get lastSyncAttempt => $composableBuilder(
+    column: $table.lastSyncAttempt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get syncError => $composableBuilder(
+    column: $table.syncError,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get retryCount => $composableBuilder(
+    column: $table.retryCount,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get cancelledAt => $composableBuilder(
+    column: $table.cancelledAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
     column: $table.createdAt,
     builder: (column) => ColumnOrderings(column),
@@ -2178,6 +3590,86 @@ class $$ReportesTableOrderingComposer
 
   ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
     column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get campaignId => $composableBuilder(
+    column: $table.campaignId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get campaignName => $composableBuilder(
+    column: $table.campaignName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get collectorName => $composableBuilder(
+    column: $table.collectorName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get collectorUniversityCode => $composableBuilder(
+    column: $table.collectorUniversityCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get photoFilename => $composableBuilder(
+    column: $table.photoFilename,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get photoSizeBytes => $composableBuilder(
+    column: $table.photoSizeBytes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get imageWidth => $composableBuilder(
+    column: $table.imageWidth,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get imageHeight => $composableBuilder(
+    column: $table.imageHeight,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get municipality => $composableBuilder(
+    column: $table.municipality,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get department => $composableBuilder(
+    column: $table.department,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get country => $composableBuilder(
+    column: $table.country,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get locationSource => $composableBuilder(
+    column: $table.locationSource,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get damageType => $composableBuilder(
+    column: $table.damageType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get surfaceType => $composableBuilder(
+    column: $table.surfaceType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get exportedAt => $composableBuilder(
+    column: $table.exportedAt,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -2199,6 +3691,14 @@ class $$ReportesTableAnnotationComposer
 
   GeneratedColumn<String> get idRemoto =>
       $composableBuilder(column: $table.idRemoto, builder: (column) => column);
+
+  GeneratedColumn<String> get clientId =>
+      $composableBuilder(column: $table.clientId, builder: (column) => column);
+
+  GeneratedColumn<String> get installationId => $composableBuilder(
+    column: $table.installationId,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<String> get usuarioId =>
       $composableBuilder(column: $table.usuarioId, builder: (column) => column);
@@ -2312,11 +3812,108 @@ class $$ReportesTableAnnotationComposer
     builder: (column) => column,
   );
 
+  GeneratedColumn<DateTime> get lastSyncAttempt => $composableBuilder(
+    column: $table.lastSyncAttempt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get syncError =>
+      $composableBuilder(column: $table.syncError, builder: (column) => column);
+
+  GeneratedColumn<int> get retryCount => $composableBuilder(
+    column: $table.retryCount,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get cancelledAt => $composableBuilder(
+    column: $table.cancelledAt,
+    builder: (column) => column,
+  );
+
   GeneratedColumn<DateTime> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
 
   GeneratedColumn<DateTime> get updatedAt =>
       $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get campaignId => $composableBuilder(
+    column: $table.campaignId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get campaignName => $composableBuilder(
+    column: $table.campaignName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get collectorName => $composableBuilder(
+    column: $table.collectorName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get collectorUniversityCode => $composableBuilder(
+    column: $table.collectorUniversityCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get photoFilename => $composableBuilder(
+    column: $table.photoFilename,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get photoSizeBytes => $composableBuilder(
+    column: $table.photoSizeBytes,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get imageWidth => $composableBuilder(
+    column: $table.imageWidth,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get imageHeight => $composableBuilder(
+    column: $table.imageHeight,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get municipality => $composableBuilder(
+    column: $table.municipality,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get department => $composableBuilder(
+    column: $table.department,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get country =>
+      $composableBuilder(column: $table.country, builder: (column) => column);
+
+  GeneratedColumn<String> get locationSource => $composableBuilder(
+    column: $table.locationSource,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get damageType => $composableBuilder(
+    column: $table.damageType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get surfaceType => $composableBuilder(
+    column: $table.surfaceType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get exportedAt => $composableBuilder(
+    column: $table.exportedAt,
+    builder: (column) => column,
+  );
 }
 
 class $$ReportesTableTableManager
@@ -2353,6 +3950,8 @@ class $$ReportesTableTableManager
                 Value<int> id = const Value.absent(),
                 Value<String> idLocal = const Value.absent(),
                 Value<String?> idRemoto = const Value.absent(),
+                Value<String?> clientId = const Value.absent(),
+                Value<String?> installationId = const Value.absent(),
                 Value<String?> usuarioId = const Value.absent(),
                 Value<String> rutaFotoLocal = const Value.absent(),
                 Value<String?> fotoUrlRemota = const Value.absent(),
@@ -2379,12 +3978,35 @@ class $$ReportesTableTableManager
                 Value<String?> clasificacionIa = const Value.absent(),
                 Value<double?> confianzaIa = const Value.absent(),
                 Value<String?> resultadoSegmentacion = const Value.absent(),
+                Value<DateTime?> lastSyncAttempt = const Value.absent(),
+                Value<String?> syncError = const Value.absent(),
+                Value<int> retryCount = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<DateTime?> cancelledAt = const Value.absent(),
                 Value<DateTime> createdAt = const Value.absent(),
                 Value<DateTime> updatedAt = const Value.absent(),
+                Value<String?> campaignId = const Value.absent(),
+                Value<String?> campaignName = const Value.absent(),
+                Value<String?> collectorName = const Value.absent(),
+                Value<String?> collectorUniversityCode = const Value.absent(),
+                Value<String?> photoFilename = const Value.absent(),
+                Value<int?> photoSizeBytes = const Value.absent(),
+                Value<int?> imageWidth = const Value.absent(),
+                Value<int?> imageHeight = const Value.absent(),
+                Value<String?> municipality = const Value.absent(),
+                Value<String?> department = const Value.absent(),
+                Value<String?> country = const Value.absent(),
+                Value<String?> locationSource = const Value.absent(),
+                Value<String?> damageType = const Value.absent(),
+                Value<String?> surfaceType = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<DateTime?> exportedAt = const Value.absent(),
               }) => ReportesCompanion(
                 id: id,
                 idLocal: idLocal,
                 idRemoto: idRemoto,
+                clientId: clientId,
+                installationId: installationId,
                 usuarioId: usuarioId,
                 rutaFotoLocal: rutaFotoLocal,
                 fotoUrlRemota: fotoUrlRemota,
@@ -2411,14 +4033,37 @@ class $$ReportesTableTableManager
                 clasificacionIa: clasificacionIa,
                 confianzaIa: confianzaIa,
                 resultadoSegmentacion: resultadoSegmentacion,
+                lastSyncAttempt: lastSyncAttempt,
+                syncError: syncError,
+                retryCount: retryCount,
+                deletedAt: deletedAt,
+                cancelledAt: cancelledAt,
                 createdAt: createdAt,
                 updatedAt: updatedAt,
+                campaignId: campaignId,
+                campaignName: campaignName,
+                collectorName: collectorName,
+                collectorUniversityCode: collectorUniversityCode,
+                photoFilename: photoFilename,
+                photoSizeBytes: photoSizeBytes,
+                imageWidth: imageWidth,
+                imageHeight: imageHeight,
+                municipality: municipality,
+                department: department,
+                country: country,
+                locationSource: locationSource,
+                damageType: damageType,
+                surfaceType: surfaceType,
+                status: status,
+                exportedAt: exportedAt,
               ),
           createCompanionCallback:
               ({
                 Value<int> id = const Value.absent(),
                 required String idLocal,
                 Value<String?> idRemoto = const Value.absent(),
+                Value<String?> clientId = const Value.absent(),
+                Value<String?> installationId = const Value.absent(),
                 Value<String?> usuarioId = const Value.absent(),
                 required String rutaFotoLocal,
                 Value<String?> fotoUrlRemota = const Value.absent(),
@@ -2445,12 +4090,35 @@ class $$ReportesTableTableManager
                 Value<String?> clasificacionIa = const Value.absent(),
                 Value<double?> confianzaIa = const Value.absent(),
                 Value<String?> resultadoSegmentacion = const Value.absent(),
+                Value<DateTime?> lastSyncAttempt = const Value.absent(),
+                Value<String?> syncError = const Value.absent(),
+                Value<int> retryCount = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<DateTime?> cancelledAt = const Value.absent(),
                 required DateTime createdAt,
                 required DateTime updatedAt,
+                Value<String?> campaignId = const Value.absent(),
+                Value<String?> campaignName = const Value.absent(),
+                Value<String?> collectorName = const Value.absent(),
+                Value<String?> collectorUniversityCode = const Value.absent(),
+                Value<String?> photoFilename = const Value.absent(),
+                Value<int?> photoSizeBytes = const Value.absent(),
+                Value<int?> imageWidth = const Value.absent(),
+                Value<int?> imageHeight = const Value.absent(),
+                Value<String?> municipality = const Value.absent(),
+                Value<String?> department = const Value.absent(),
+                Value<String?> country = const Value.absent(),
+                Value<String?> locationSource = const Value.absent(),
+                Value<String?> damageType = const Value.absent(),
+                Value<String?> surfaceType = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<DateTime?> exportedAt = const Value.absent(),
               }) => ReportesCompanion.insert(
                 id: id,
                 idLocal: idLocal,
                 idRemoto: idRemoto,
+                clientId: clientId,
+                installationId: installationId,
                 usuarioId: usuarioId,
                 rutaFotoLocal: rutaFotoLocal,
                 fotoUrlRemota: fotoUrlRemota,
@@ -2477,8 +4145,29 @@ class $$ReportesTableTableManager
                 clasificacionIa: clasificacionIa,
                 confianzaIa: confianzaIa,
                 resultadoSegmentacion: resultadoSegmentacion,
+                lastSyncAttempt: lastSyncAttempt,
+                syncError: syncError,
+                retryCount: retryCount,
+                deletedAt: deletedAt,
+                cancelledAt: cancelledAt,
                 createdAt: createdAt,
                 updatedAt: updatedAt,
+                campaignId: campaignId,
+                campaignName: campaignName,
+                collectorName: collectorName,
+                collectorUniversityCode: collectorUniversityCode,
+                photoFilename: photoFilename,
+                photoSizeBytes: photoSizeBytes,
+                imageWidth: imageWidth,
+                imageHeight: imageHeight,
+                municipality: municipality,
+                department: department,
+                country: country,
+                locationSource: locationSource,
+                damageType: damageType,
+                surfaceType: surfaceType,
+                status: status,
+                exportedAt: exportedAt,
               ),
           withReferenceMapper: (p0) => p0
               .map(

@@ -51,7 +51,7 @@ class ImageService {
   Future<String> _saveImageLocally(File originalFile) async {
     try {
       final appDir = await getApplicationDocumentsDirectory();
-      final imagesDir = Directory('${appDir.path}/reportes/images');
+      final imagesDir = Directory('${appDir.path}/observatorio_movilidad/images/original');
       
       if (!await imagesDir.exists()) {
         await imagesDir.create(recursive: true);
@@ -69,6 +69,19 @@ class ImageService {
       print('Error al guardar imagen: $e');
       rethrow;
     }
+  }
+
+  Future<String> persistForReport(String sourcePath, String reportId) async {
+    final appDir = await getApplicationDocumentsDirectory();
+    final imagesDir = Directory('${appDir.path}/observatorio_movilidad/images/original');
+    await imagesDir.create(recursive: true);
+    final destination = File('${imagesDir.path}/$reportId.jpg');
+    if (sourcePath != destination.path) {
+      await File(sourcePath).copy(destination.path);
+      final source = File(sourcePath);
+      if (await source.exists()) await source.delete();
+    }
+    return destination.path;
   }
 
   /// Verifica si un archivo de imagen existe

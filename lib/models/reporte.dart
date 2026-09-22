@@ -8,6 +8,8 @@ class Reportes extends Table {
   // Identificadores
   TextColumn get idLocal => text().unique()();
   TextColumn get idRemoto => text().nullable()();
+  TextColumn get clientId => text().nullable()();
+  TextColumn get installationId => text().nullable()();
 
   // Usuario
   TextColumn get usuarioId => text().nullable()();
@@ -58,17 +60,43 @@ class Reportes extends Table {
   RealColumn get confianzaIa => real().nullable()();
   TextColumn get resultadoSegmentacion => text().nullable()(); // JSON serializado
 
+  // Sincronización y auditoría
+  DateTimeColumn get lastSyncAttempt => dateTime().nullable()();
+  TextColumn get syncError => text().nullable()();
+  IntColumn get retryCount => integer().withDefault(const Constant(0))();
+  DateTimeColumn get deletedAt => dateTime().nullable()();
+  DateTimeColumn get cancelledAt => dateTime().nullable()();
+
   // Auditoría
   DateTimeColumn get createdAt => dateTime()();
   DateTimeColumn get updatedAt => dateTime()();
-}
 
+  // Datos de campo y exportacion. Son opcionales para conservar instalaciones previas.
+  TextColumn get campaignId => text().nullable()();
+  TextColumn get campaignName => text().nullable()();
+  TextColumn get collectorName => text().nullable()();
+  TextColumn get collectorUniversityCode => text().nullable()();
+  TextColumn get photoFilename => text().nullable()();
+  IntColumn get photoSizeBytes => integer().nullable()();
+  IntColumn get imageWidth => integer().nullable()();
+  IntColumn get imageHeight => integer().nullable()();
+  TextColumn get municipality => text().nullable()();
+  TextColumn get department => text().nullable()();
+  TextColumn get country => text().nullable()();
+  TextColumn get locationSource => text().nullable()();
+  TextColumn get damageType => text().nullable()();
+  TextColumn get surfaceType => text().nullable()();
+  TextColumn get status => text().withDefault(const Constant('completo'))();
+  DateTimeColumn get exportedAt => dateTime().nullable()();
+}
 
 /// Clase modelo Dart para representar un reporte
 class Reporte {
   final int? id;
   final String idLocal;
   final String? idRemoto;
+  final String? clientId;
+  final String? installationId;
   final String? usuarioId;
   final String rutaFotoLocal;
   final String? fotoUrlRemota;
@@ -95,13 +123,36 @@ class Reporte {
   final String? clasificacionIa;
   final double? confianzaIa;
   final String? resultadoSegmentacion;
+  final DateTime? lastSyncAttempt;
+  final String? syncError;
+  final int retryCount;
+  final DateTime? deletedAt;
+  final DateTime? cancelledAt;
   final DateTime createdAt;
   final DateTime updatedAt;
+  final String? campaignId;
+  final String? campaignName;
+  final String? collectorName;
+  final String? collectorUniversityCode;
+  final String? photoFilename;
+  final int? photoSizeBytes;
+  final int? imageWidth;
+  final int? imageHeight;
+  final String? municipality;
+  final String? department;
+  final String? country;
+  final String? locationSource;
+  final String? damageType;
+  final String? surfaceType;
+  final String status;
+  final DateTime? exportedAt;
 
   const Reporte({
     this.id,
     required this.idLocal,
     this.idRemoto,
+    this.clientId,
+    this.installationId,
     this.usuarioId,
     required this.rutaFotoLocal,
     this.fotoUrlRemota,
@@ -128,8 +179,29 @@ class Reporte {
     this.clasificacionIa,
     this.confianzaIa,
     this.resultadoSegmentacion,
+    this.lastSyncAttempt,
+    this.syncError,
+    this.retryCount = 0,
+    this.deletedAt,
+    this.cancelledAt,
     required this.createdAt,
     required this.updatedAt,
+    this.campaignId,
+    this.campaignName,
+    this.collectorName,
+    this.collectorUniversityCode,
+    this.photoFilename,
+    this.photoSizeBytes,
+    this.imageWidth,
+    this.imageHeight,
+    this.municipality,
+    this.department,
+    this.country,
+    this.locationSource,
+    this.damageType,
+    this.surfaceType,
+    this.status = 'completo',
+    this.exportedAt,
   });
 
   /// Crea una copia del reporte con algunos campos actualizados
@@ -137,6 +209,8 @@ class Reporte {
     int? id,
     String? idLocal,
     String? idRemoto,
+    String? clientId,
+    String? installationId,
     String? usuarioId,
     String? rutaFotoLocal,
     String? fotoUrlRemota,
@@ -163,13 +237,36 @@ class Reporte {
     String? clasificacionIa,
     double? confianzaIa,
     String? resultadoSegmentacion,
+    DateTime? lastSyncAttempt,
+    String? syncError,
+    int? retryCount,
+    DateTime? deletedAt,
+    DateTime? cancelledAt,
     DateTime? createdAt,
     DateTime? updatedAt,
+    String? campaignId,
+    String? campaignName,
+    String? collectorName,
+    String? collectorUniversityCode,
+    String? photoFilename,
+    int? photoSizeBytes,
+    int? imageWidth,
+    int? imageHeight,
+    String? municipality,
+    String? department,
+    String? country,
+    String? locationSource,
+    String? damageType,
+    String? surfaceType,
+    String? status,
+    DateTime? exportedAt,
   }) {
     return Reporte(
       id: id ?? this.id,
       idLocal: idLocal ?? this.idLocal,
       idRemoto: idRemoto ?? this.idRemoto,
+      clientId: clientId ?? this.clientId,
+      installationId: installationId ?? this.installationId,
       usuarioId: usuarioId ?? this.usuarioId,
       rutaFotoLocal: rutaFotoLocal ?? this.rutaFotoLocal,
       fotoUrlRemota: fotoUrlRemota ?? this.fotoUrlRemota,
@@ -196,8 +293,29 @@ class Reporte {
       clasificacionIa: clasificacionIa ?? this.clasificacionIa,
       confianzaIa: confianzaIa ?? this.confianzaIa,
       resultadoSegmentacion: resultadoSegmentacion ?? this.resultadoSegmentacion,
+      lastSyncAttempt: lastSyncAttempt ?? this.lastSyncAttempt,
+      syncError: syncError ?? this.syncError,
+      retryCount: retryCount ?? this.retryCount,
+      deletedAt: deletedAt ?? this.deletedAt,
+      cancelledAt: cancelledAt ?? this.cancelledAt,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
+      campaignId: campaignId ?? this.campaignId,
+      campaignName: campaignName ?? this.campaignName,
+      collectorName: collectorName ?? this.collectorName,
+      collectorUniversityCode: collectorUniversityCode ?? this.collectorUniversityCode,
+      photoFilename: photoFilename ?? this.photoFilename,
+      photoSizeBytes: photoSizeBytes ?? this.photoSizeBytes,
+      imageWidth: imageWidth ?? this.imageWidth,
+      imageHeight: imageHeight ?? this.imageHeight,
+      municipality: municipality ?? this.municipality,
+      department: department ?? this.department,
+      country: country ?? this.country,
+      locationSource: locationSource ?? this.locationSource,
+      damageType: damageType ?? this.damageType,
+      surfaceType: surfaceType ?? this.surfaceType,
+      status: status ?? this.status,
+      exportedAt: exportedAt ?? this.exportedAt,
     );
   }
 

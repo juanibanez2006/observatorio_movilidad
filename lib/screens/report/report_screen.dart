@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
+import 'package:uuid/uuid.dart';
 import '../../database/app_database.dart';
 import '../../repositories/reporte_repository.dart';
 import '../../services/image_service.dart';
 import '../../services/location_service.dart';
 import '../../widgets/primary_button.dart';
+import '../../services/collector_profile_service.dart';
 
 class ReportScreen extends StatefulWidget {
   final AppDatabase database;
@@ -28,11 +30,18 @@ class _ReportScreenState extends State<ReportScreen> {
   double? _longitud;
   double? _precisionGps;
   bool _isLoading = false;
+  final _formKey = GlobalKey<FormState>();
 
   final _viaSectorController = TextEditingController();
   final _barrioController = TextEditingController();
   final _puntoReferenciaController = TextEditingController();
   final _descripcionController = TextEditingController();
+  final _largoController = TextEditingController();
+  final _anchoController = TextEditingController();
+  final _profundidadController = TextEditingController();
+  String? _damageType;
+  String? _severity;
+  String? _surfaceType;
 
   @override
   void initState() {
@@ -48,6 +57,9 @@ class _ReportScreenState extends State<ReportScreen> {
     _barrioController.dispose();
     _puntoReferenciaController.dispose();
     _descripcionController.dispose();
+    _largoController.dispose();
+    _anchoController.dispose();
+    _profundidadController.dispose();
     super.dispose();
   }
 
@@ -59,9 +71,11 @@ class _ReportScreenState extends State<ReportScreen> {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
             // Sección Fotografía
             _buildSectionTitle('Fotografía'),
             const SizedBox(height: 12),
@@ -117,6 +131,45 @@ class _ReportScreenState extends State<ReportScreen> {
               maxLines: 3,
               maxLength: 500,
             ),
+            const SizedBox(height: 12),
+            DropdownButtonFormField<String>(
+              initialValue: _damageType,
+              decoration: const InputDecoration(labelText: 'Tipo de deterioro'),
+              items: const ['Bache', 'Piel de cocodrilo', 'Fisura longitudinal', 'Fisura transversal', 'Fisuración en bloque', 'Ahuellamiento', 'Deformación', 'Desprendimiento', 'Otro']
+                  .map((value) => DropdownMenuItem(value: value, child: Text(value)))
+                  .toList(),
+              onChanged: (value) => setState(() => _damageType = value),
+            ),
+            const SizedBox(height: 12),
+            DropdownButtonFormField<String>(
+              initialValue: _severity,
+              decoration: const InputDecoration(labelText: 'Severidad'),
+              items: const ['Baja', 'Media', 'Alta']
+                  .map((value) => DropdownMenuItem(value: value, child: Text(value)))
+                  .toList(),
+              onChanged: (value) => setState(() => _severity = value),
+            ),
+            const SizedBox(height: 12),
+            DropdownButtonFormField<String>(
+              initialValue: _surfaceType,
+              decoration: const InputDecoration(labelText: 'Superficie'),
+              items: const ['Pavimentada', 'No pavimentada', 'Otro']
+                  .map((value) => DropdownMenuItem(value: value, child: Text(value)))
+                  .toList(),
+              onChanged: (value) => setState(() => _surfaceType = value),
+            ),
+            const SizedBox(height: 12),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 8),
+              child: Text('Mediciones (opcional)'),
+            ),
+            Row(children: [
+              Expanded(child: _measurementField(_largoController, 'Largo (cm)')),
+              const SizedBox(width: 8),
+              Expanded(child: _measurementField(_anchoController, 'Ancho (cm)')),
+              const SizedBox(width: 8),
+              Expanded(child: _measurementField(_profundidadController, 'Profundidad (cm)')),
+            ]),
             const SizedBox(height: 32),
 
             // Botón Registrar
@@ -127,7 +180,8 @@ class _ReportScreenState extends State<ReportScreen> {
               icon: Icons.save,
             ),
             const SizedBox(height: 16),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -140,6 +194,21 @@ class _ReportScreenState extends State<ReportScreen> {
             fontWeight: FontWeight.bold,
             color: const Color(0xFF1B5E20),
           ),
+    );
+  }
+
+  Widget _measurementField(TextEditingController controller, String label) {
+    return TextFormField(
+      controller: controller,
+      keyboardType: const TextInputType.numberWithOptions(decimal: true),
+      decoration: InputDecoration(labelText: label, helperText: 'Opcional'),
+      validator: (value) {
+        final text = value?.trim() ?? '';
+        if (text.isEmpty) return null;
+        final parsed = double.tryParse(text.replaceAll(',', '.'));
+        if (parsed == null || parsed < 0) return 'Número >= 0';
+        return null;
+      },
     );
   }
 
@@ -311,11 +380,16 @@ class _ReportScreenState extends State<ReportScreen> {
       return;
     }
 
+    if (!_formKey.currentState!.validate()) return;
+
     setState(() => _isLoading = true);
 
     try {
+      final idLocal = const Uuid().v4();
+      final persistentPath = await _imageService.persistForReport(_imagePath!, idLocal);
+      final profile = await CollectorProfileService().load();
       await _repository.crearReporteLocal(
-        rutaFotoLocal: _imagePath!,
+        rutaFotoLocal: persistentPath,
         latitud: _latitud!,
         longitud: _longitud!,
         precisionGps: _precisionGps ?? 0,
@@ -328,6 +402,16 @@ class _ReportScreenState extends State<ReportScreen> {
         descripcionCiudadano: _descripcionController.text.isEmpty
             ? null
             : _descripcionController.text,
+        profile: profile,
+        damageType: _damageType,
+        severity: _severity,
+        surfaceType: _surfaceType,
+        technicalObservations: _descripcionController.text,
+        photoFilename: '$idLocal.jpg',
+        photoSizeBytes: await File(persistentPath).length(),
+        largoCm: _parseMeasurement(_largoController.text),
+        anchoCm: _parseMeasurement(_anchoController.text),
+        profundidadCm: _parseMeasurement(_profundidadController.text),
       );
 
       if (mounted) {
@@ -341,6 +425,12 @@ class _ReportScreenState extends State<ReportScreen> {
         _mostrarError('Error al guardar el reporte: $e');
       }
     }
+  }
+
+  double? _parseMeasurement(String value) {
+    final text = value.trim();
+    if (text.isEmpty) return null;
+    return double.parse(text.replaceAll(',', '.'));
   }
 
   bool _fileExists(String path) {

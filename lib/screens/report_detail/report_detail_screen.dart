@@ -341,7 +341,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Eliminar Reporte'),
-        content: const Text('¿Está seguro de que desea eliminar este reporte?'),
+        content: const Text('Este reporte y su fotografía serán eliminados permanentemente de este dispositivo.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
@@ -360,7 +360,12 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
 
     if (confirmed == true) {
       try {
+        final photoPath = _reporte?.rutaFotoLocal;
         await _repository.eliminarReporte(widget.idLocal);
+        if (photoPath != null) {
+          final photo = File(photoPath);
+          if (await photo.exists()) await photo.delete();
+        }
         if (mounted) {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(

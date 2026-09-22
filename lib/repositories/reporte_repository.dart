@@ -2,11 +2,22 @@ import 'package:uuid/uuid.dart';
 import '../models/reporte.dart';
 import '../database/app_database.dart';
 import '../core/constants/app_constants.dart';
+import '../services/collector_profile_service.dart';
 
 class ReporteRepository {
   final AppDatabase database;
 
   ReporteRepository(this.database);
+
+  Stream<List<Reporte>> watchReports() => database.watchReports();
+
+  Stream<Reporte?> watchReportById(String idLocal) =>
+      database.watchReportById(idLocal);
+
+  Stream<HomeStatistics> watchHomeStatistics() => database.watchHomeStatistics();
+  Stream<HomeStatistics> watchDashboardStatistics() => database.watchDashboardStatistics();
+  Stream<int> watchUnexportedCount() => database.watchUnexportedCount();
+  Stream<int> watchCampaignStatistics(String campaignId) => database.watchCampaignStatistics(campaignId);
 
   /// Crea un nuevo reporte local
   Future<Reporte> crearReporteLocal({
@@ -15,6 +26,17 @@ class ReporteRepository {
     required double longitud,
     required double precisionGps,
     required DateTime fechaHora,
+    required CollectorProfile profile,
+    String? damageType,
+    String? severity,
+    String? surfaceType,
+    String? technicalObservations,
+    String? status,
+    String? photoFilename,
+    int? photoSizeBytes,
+    double? largoCm,
+    double? anchoCm,
+    double? profundidadCm,
     String? viaSector,
     String? barrio,
     String? puntoReferencia,
@@ -34,6 +56,25 @@ class ReporteRepository {
       barrio: barrio,
       puntoReferencia: puntoReferencia,
       descripcionCiudadano: descripcionCiudadano,
+      installationId: profile.installationId,
+      campaignId: profile.campaignId,
+      campaignName: profile.campaignName,
+      collectorName: profile.collectorName,
+      collectorUniversityCode: profile.universityCode,
+      photoFilename: photoFilename,
+      photoSizeBytes: photoSizeBytes,
+      municipality: profile.municipality,
+      department: profile.department,
+      country: profile.country,
+      locationSource: 'campaign',
+      damageType: damageType,
+      severidadProfesional: severity,
+      surfaceType: surfaceType,
+      observacionProfesional: technicalObservations,
+      status: status ?? 'completo',
+      largoCm: largoCm,
+      anchoCm: anchoCm,
+      profundidadCm: profundidadCm,
       estadoReporte: AppConstants.estadoReportado,
       estadoSincronizacion: AppConstants.sincPendiente,
       estadoIa: AppConstants.estadoIaPendiente,
@@ -102,6 +143,8 @@ class ReporteRepository {
   Future<void> eliminarReporte(String idLocal) async {
     await database.deleteReporteByIdLocal(idLocal);
   }
+
+  Future<void> marcarExportado(String idLocal, DateTime fecha) => database.markExported(idLocal, fecha);
 
   /// Obtiene estadísticas de reportes
   Future<Map<String, int>> obtenerEstadisticas() async {
